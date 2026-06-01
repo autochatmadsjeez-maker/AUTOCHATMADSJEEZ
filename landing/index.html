@@ -377,7 +377,7 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
     <div style="text-align:center;margin-bottom:1.5rem">
       <span class="pill pill-green">Precios en pesos</span>
       <h2 style="margin-top:1.25rem">Planes simples, sin sorpresas</h2>
-      <p class="muted" style="max-width:600px;margin:1rem auto 0;font-size:1.05rem">Pagás en ARS por MercadoPago o transferencia. Factura A o B. Sin permanencia. Cancelás cuando quieras.</p>
+      <p class="muted" style="max-width:640px;margin:1rem auto 0;font-size:1.05rem">Pagás con <strong style="color:#e9e9f5">tarjeta (sin cuenta PayPal)</strong>, MercadoPago o transferencia. Factura A o B. Sin permanencia. Cancelás cuando quieras.</p>
     </div>
     <div class="pricing">
       <div class="plan">
@@ -413,7 +413,8 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
           <li>Webhooks y APIs custom</li>
           <li>Soporte por email (48 hs)</li>
         </ul>
-        <a href="https://wa.me/5491121816064?text=Hola%21%20Quiero%20contratar%20el%20plan%20Pro" class="btn btn-p" style="width:100%">Contratar Pro</a>
+        <button onclick="openPay('Pro mensual',19,'5.000 tareas/mes · 3 usuarios')" class="btn btn-p" style="width:100%">💳 Pagar con tarjeta</button>
+        <a href="https://wa.me/5491121816064?text=Hola%21%20Quiero%20contratar%20el%20plan%20Pro" class="btn btn-s" style="width:100%;margin-top:.5rem">💬 Pagar por transferencia</a>
       </div>
 
       <div class="plan">
@@ -433,7 +434,8 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
           <li>Soporte prioritario (8 hs)</li>
           <li>Onboarding 1-a-1</li>
         </ul>
-        <a href="https://wa.me/5491121816064?text=Hola%21%20Quiero%20contratar%20el%20plan%20Business" class="btn btn-s" style="width:100%">Contratar Business</a>
+        <button onclick="openPay('Business mensual',59,'25.000 tareas/mes · 10 usuarios')" class="btn btn-p" style="width:100%">💳 Pagar con tarjeta</button>
+        <a href="https://wa.me/5491121816064?text=Hola%21%20Quiero%20contratar%20el%20plan%20Business" class="btn btn-s" style="width:100%;margin-top:.5rem">💬 Pagar por transferencia</a>
       </div>
 
       <div class="plan">
@@ -471,19 +473,22 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
         <h3>Setup inicial <span class="grad-text" style="font-weight:800">premium</span></h3>
         <div style="font-size:1.5rem;font-weight:800;margin:.5rem 0">$149.000 <span style="font-size:.85rem;font-weight:500;color:#8a8aa3">one-time</span></div>
         <p class="muted" style="margin:0 0 1rem;font-size:.92rem">Onboarding completo en 1 semana. Hasta 5 flows armados, conexión de tus apps clave, capacitación del equipo (2 hs).</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Hasta 5 flows custom</li><li>✓ Conexión de 10 integraciones</li><li>✓ 2 hs de capacitación grabada</li><li>✓ Documentación interna</li></ul>
+        <ul style="list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Hasta 5 flows custom</li><li>✓ Conexión de 10 integraciones</li><li>✓ 2 hs de capacitación grabada</li><li>✓ Documentación interna</li></ul>
+        <button onclick="openPay('Setup inicial premium',149,'Onboarding completo · 5 flows · 10 integraciones')" class="btn btn-p" style="width:100%">💳 Pagar con tarjeta</button>
       </div>
       <div class="card">
         <h3>Flow on-demand</h3>
         <div style="font-size:1.5rem;font-weight:800;margin:.5rem 0">$35.000 <span style="font-size:.85rem;font-weight:500;color:#8a8aa3">por flow</span></div>
         <p class="muted" style="margin:0 0 1rem;font-size:.92rem">¿Necesitás un flow específico? Lo armamos, lo testeamos y te lo entregamos andando. Garantía de 30 días.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Diseño + implementación</li><li>✓ Testing con datos reales</li><li>✓ Documentación de uso</li><li>✓ 30 días de soporte</li></ul>
+        <ul style="list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Diseño + implementación</li><li>✓ Testing con datos reales</li><li>✓ Documentación de uso</li><li>✓ 30 días de soporte</li></ul>
+        <button onclick="openPay('Flow on-demand',35,'1 flow custom con garantía 30 días')" class="btn btn-p" style="width:100%">💳 Pagar con tarjeta</button>
       </div>
       <div class="card">
         <h3>Consultoría</h3>
         <div style="font-size:1.5rem;font-weight:800;margin:.5rem 0">$45.000 <span style="font-size:.85rem;font-weight:500;color:#8a8aa3">/hora</span></div>
         <p class="muted" style="margin:0 0 1rem;font-size:.92rem">Auditamos tu operación, diseñamos arquitectura de automatización y te dejamos un roadmap accionable.</p>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Diagnóstico de procesos</li><li>✓ Diseño de arquitectura</li><li>✓ Roadmap priorizado</li><li>✓ Informe ejecutivo</li></ul>
+        <ul style="list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.9rem;color:#c8c8dd"><li>✓ Diagnóstico de procesos</li><li>✓ Diseño de arquitectura</li><li>✓ Roadmap priorizado</li><li>✓ Informe ejecutivo</li></ul>
+        <button onclick="openPay('Consultoría 1 hora',45,'1 hora de consultoría + informe ejecutivo')" class="btn btn-p" style="width:100%">💳 Pagar 1 hora</button>
       </div>
     </div>
   </div>
@@ -618,6 +623,86 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<!-- Pay Modal -->
+<div id="payModal" role="dialog" aria-modal="true" aria-labelledby="payTitle" style="display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:1rem">
+  <div onclick="closePay()" style="position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px)"></div>
+  <div style="position:relative;background:#0f0f1d;border:1px solid rgba(255,255,255,.1);border-radius:1rem;max-width:440px;width:100%;padding:1.75rem;box-shadow:0 30px 80px -20px rgba(124,58,237,.4)">
+    <button onclick="closePay()" aria-label="Cerrar" style="position:absolute;top:.75rem;right:.75rem;width:32px;height:32px;border-radius:.5rem;background:rgba(255,255,255,.06);color:#fff;font-size:1.1rem">✕</button>
+    <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem">
+      <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="lgm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#lgm)"/><path d="M18 42 L32 18 L46 42 M24 35 H40" stroke="white" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <strong style="font-size:1rem">Ativiti MadsJeez</strong>
+    </div>
+    <h3 id="payTitle" style="font-size:1.3rem;margin:.25rem 0">Pagar</h3>
+    <p id="payDesc" class="muted" style="margin:0 0 1rem;font-size:.92rem"></p>
+    <div id="payAmount" style="background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.1));border:1px solid rgba(124,58,237,.25);border-radius:.6rem;padding:.75rem 1rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center"><span class="muted" style="font-size:.85rem">Total a pagar</span><span style="font-size:1.4rem;font-weight:800" id="payTotal">USD 0</span></div>
+    <div id="paypal-container" style="min-height:140px"></div>
+    <div id="payLoading" class="muted" style="text-align:center;padding:1rem;font-size:.9rem">Cargando opciones de pago…</div>
+    <p class="dim" style="font-size:.78rem;margin:1rem 0 0;line-height:1.5;text-align:center">🔒 Procesado por PayPal. Aceptamos <strong>tarjetas de crédito o débito sin necesidad de cuenta PayPal</strong>. Pagás en USD al tipo de cambio del día. Recibirás factura A o B por email.</p>
+  </div>
+</div>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+// PayPal Guest Checkout
+const PAYPAL_CLIENT_ID = 'sb'; // TODO: replace with your real PayPal Live Client ID
+let paypalReady = false;
+const ps = document.createElement('script');
+ps.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD&intent=capture&enable-funding=card&disable-funding=paylater,credit&components=buttons`;
+ps.async = true;
+ps.onload = () => { paypalReady = true; document.getElementById('payLoading').style.display='none'; };
+ps.onerror = () => { document.getElementById('payLoading').innerHTML='No se pudo cargar PayPal. Contactanos por WhatsApp.'; };
+document.head.appendChild(ps);
+
+let currentBtns = null;
+function openPay(plan, amount, desc){
+  document.getElementById('payTitle').textContent = plan;
+  document.getElementById('payDesc').textContent = desc;
+  document.getElementById('payTotal').textContent = 'USD ' + amount;
+  const modal = document.getElementById('payModal');
+  modal.style.display = 'flex';
+  document.body.style.overflow='hidden';
+  const c = document.getElementById('paypal-container');
+  c.innerHTML = '';
+  if(currentBtns){ try{currentBtns.close()}catch(e){} currentBtns=null; }
+  const renderBtns = () => {
+    document.getElementById('payLoading').style.display='none';
+    currentBtns = window.paypal.Buttons({
+      style:{layout:'vertical',color:'gold',shape:'rect',label:'pay',height:48},
+      createOrder:(data,actions)=>actions.order.create({
+        purchase_units:[{
+          amount:{value:String(amount),currency_code:'USD'},
+          description:'Ativiti MadsJeez · '+plan,
+          custom_id:plan
+        }],
+        application_context:{
+          brand_name:'Ativiti MadsJeez',
+          shipping_preference:'NO_SHIPPING',
+          user_action:'PAY_NOW',
+          locale:'es-AR'
+        }
+      }),
+      onApprove:(data,actions)=>actions.order.capture().then(order=>{
+        const txid = order.id;
+        const payer = (order.payer && order.payer.email_address) || '';
+        const msg = encodeURIComponent(`¡Pagué el plan ${plan}! Order ID: ${txid}. Email: ${payer}. Por favor activame la cuenta.`);
+        window.location.href = `https://wa.me/5491121816064?text=${msg}`;
+      }),
+      onError:(err)=>{ console.error(err); alert('Hubo un problema con el pago. Probá de nuevo o contactanos por WhatsApp.'); }
+    });
+    currentBtns.render('#paypal-container');
+  };
+  if(paypalReady) renderBtns();
+  else {
+    document.getElementById('payLoading').style.display='block';
+    const i = setInterval(()=>{ if(paypalReady){ clearInterval(i); renderBtns(); }},200);
+  }
+}
+function closePay(){
+  document.getElementById('payModal').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePay(); });
+</script>
 </body>
 </html>
