@@ -689,7 +689,7 @@ function openPay(plan, amount, desc){
         const customerEmail = payer;
         document.getElementById('paypal-container').innerHTML = '<div style="text-align:center;padding:1.5rem"><div style="font-size:3rem;margin-bottom:.5rem">✅</div><h3 style="margin:0 0 .5rem;color:#22d3ee">¡Pago confirmado!</h3><p class="muted" style="margin:0">Te mandamos un email a <strong style="color:#e9e9f5">'+customerEmail+'</strong> con todos los detalles.</p></div>';
         try{
-          await fetch((window.API_URL||'')+'/api/payment-confirmed',{
+          await fetch((window.API_URL||'https://api-production-848d.up.railway.app')+'/api/payment-confirmed',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({orderId:txid,plan,amount:String(amount),customerEmail,customerName:name,payerEmail:payer})
