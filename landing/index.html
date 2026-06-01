@@ -645,7 +645,7 @@ footer{padding:4rem 0 2rem;border-top:1px solid rgba(255,255,255,.06);color:#8a8
 document.getElementById('y').textContent=new Date().getFullYear();
 
 // PayPal Guest Checkout
-const PAYPAL_CLIENT_ID = 'sb'; // TODO: replace with your real PayPal Live Client ID
+const PAYPAL_CLIENT_ID = 'AVVw4pfAjPDUvtIO1VSxjITRMTO716_DmyUAqfvd_yfOBuja4OWRKOSG8pjMnMtOrEoIcOmaQgEnajUG'; // Sandbox — cambiar por Live cuando esté listo para cobros reales
 let paypalReady = false;
 const ps = document.createElement('script');
 ps.src = `https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD&intent=capture&enable-funding=card&disable-funding=paylater,credit&components=buttons`;
