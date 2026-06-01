@@ -682,11 +682,23 @@ function openPay(plan, amount, desc){
           locale:'es-AR'
         }
       }),
-      onApprove:(data,actions)=>actions.order.capture().then(order=>{
+      onApprove:(data,actions)=>actions.order.capture().then(async order=>{
         const txid = order.id;
         const payer = (order.payer && order.payer.email_address) || '';
-        const msg = encodeURIComponent(`¡Pagué el plan ${plan}! Order ID: ${txid}. Email: ${payer}. Por favor activame la cuenta.`);
-        window.location.href = `https://wa.me/5491121816064?text=${msg}`;
+        const name = order.payer ? `${(order.payer.name&&order.payer.name.given_name)||''} ${(order.payer.name&&order.payer.name.surname)||''}`.trim() : '';
+        const customerEmail = payer;
+        document.getElementById('paypal-container').innerHTML = '<div style="text-align:center;padding:1.5rem"><div style="font-size:3rem;margin-bottom:.5rem">✅</div><h3 style="margin:0 0 .5rem;color:#22d3ee">¡Pago confirmado!</h3><p class="muted" style="margin:0">Te mandamos un email a <strong style="color:#e9e9f5">'+customerEmail+'</strong> con todos los detalles.</p></div>';
+        try{
+          await fetch((window.API_URL||'')+'/api/payment-confirmed',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({orderId:txid,plan,amount:String(amount),customerEmail,customerName:name,payerEmail:payer})
+          });
+        }catch(e){console.error('email notify failed',e);}
+        setTimeout(()=>{
+          const msg = encodeURIComponent(`¡Pagué el plan ${plan}! Order ID: ${txid}. Email: ${payer}.`);
+          window.location.href = `https://wa.me/5491121816064?text=${msg}`;
+        }, 2500);
       }),
       onError:(err)=>{ console.error(err); alert('Hubo un problema con el pago. Probá de nuevo o contactanos por WhatsApp.'); }
     });
